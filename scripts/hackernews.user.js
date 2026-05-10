@@ -126,10 +126,10 @@
     if (Math.abs(dx) < MIN_SWIPE_PX) return;
     if (Math.abs(dy) > MAX_VERTICAL_DRIFT_PX) return;
 
-    // Swipe left: next higher story/job/poll ID
-    if (dx < 0) go(1);
+    // Swipe left: next lower/older story/job/poll ID
+    if (dx < 0) go(-1);
 
-    // Swipe right: previous lower story/job/poll ID
-    else go(-1);
+    // Swipe right: previous higher/newer story/job/poll ID
+    else go(1);
   }, { passive: true });
 })();
