@@ -51,6 +51,7 @@
 
   let startX = 0;
   let startY = 0;
+  let isSwipeCandidate = false;
 
   async function fetchItem(id) {
     const response = await GM.xmlHttpRequest({
@@ -111,13 +112,28 @@
   }
 
   document.addEventListener("touchstart", event => {
-    if (event.touches.length !== 1) return;
+    isSwipeCandidate = event.touches.length === 1;
+    if (!isSwipeCandidate) return;
 
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
   }, { passive: true });
 
+  document.addEventListener("touchmove", event => {
+    if (event.touches.length !== 1) {
+      isSwipeCandidate = false;
+    }
+  }, { passive: true });
+
   document.addEventListener("touchend", event => {
+    if (!isSwipeCandidate) return;
+    if (event.touches.length !== 0) {
+      isSwipeCandidate = false;
+      return;
+    }
+
+    isSwipeCandidate = false;
+
     const touch = event.changedTouches[0];
 
     const dx = touch.clientX - startX;
@@ -131,5 +147,9 @@
 
     // Swipe right: previous higher/newer story/job/poll ID
     else go(1);
+  }, { passive: true });
+
+  document.addEventListener("touchcancel", () => {
+    isSwipeCandidate = false;
   }, { passive: true });
 })();
