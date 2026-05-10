@@ -46,7 +46,7 @@
   const MAX_SCAN = 500;
   const BATCH_SIZE = 20;
 
-  const currentId = Number(new URL(location.href).searchParams.get("id"));
+  const currentId = Number(new URL(location.href).searchParams.get("id") || undefined);
   if (!Number.isInteger(currentId)) return;
 
   let startX = 0;
