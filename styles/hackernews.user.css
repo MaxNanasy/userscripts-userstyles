@@ -1,0 +1,56 @@
+/* ==UserStyle==
+@name           Hacker News Styles
+@namespace      github.com/MaxNanasy/userscripts-userstyles
+@version        0.0.0
+==/UserStyle== */
+
+@-moz-document domain("news.ycombinator.com") {
+
+/* Make visited comment section differently colored link */
+
+.hn-has-comments,
+.hn-no-comments {
+  color: blue !important;
+}
+
+.hn-has-comments:visited,
+.hn-no-comments:visited {
+  color: purple !important;
+}
+
+/* Make faded comment text clearer */
+
+.commtext.c5a,
+.commtext.c73,
+.commtext.c82,
+.commtext.c88,
+.commtext.c9c,
+.commtext.cae,
+.commtext.cbe,
+.commtext.cce,
+.commtext.cdd,
+.commtext.c5a a,
+.commtext.c73 a,
+.commtext.c82 a,
+.commtext.c88 a,
+.commtext.c9c a,
+.commtext.cae a,
+.commtext.cbe a,
+.commtext.cce a,
+.commtext.cdd a {
+  color: brown !important;
+}
+
+.commtext.c5a a:visited,
+.commtext.c73 a:visited,
+.commtext.c82 a:visited,
+.commtext.c88 a:visited,
+.commtext.c9c a:visited,
+.commtext.cae a:visited,
+.commtext.cbe a:visited,
+.commtext.cce a:visited,
+.commtext.cdd a:visited {
+  color: rosyBrown !important;
+}
+
+}
