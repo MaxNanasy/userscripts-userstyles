@@ -65,8 +65,6 @@
 
   function isNavigableItem(item) {
     return item &&
-      !item.deleted &&
-      !item.dead &&
       (
         item.type === "story" ||
         item.type === "job" ||
