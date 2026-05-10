@@ -43,7 +43,7 @@
 
   const MIN_SWIPE_PX = 60;
   const MAX_VERTICAL_DRIFT_PX = 80;
-  const MAX_SCAN = 100;
+  const MAX_SCAN = 500;
   const BATCH_SIZE = 20;
 
   const currentId = Number(new URL(location.href).searchParams.get("id"));
